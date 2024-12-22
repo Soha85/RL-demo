@@ -60,6 +60,7 @@ class GridEnv(gym.Env):
 
 # Streamlit interface
 st.title("Q-Learning in Grid Environment")
+st.write("The grid is displayed step by step, showing the agent (A) moving toward the goal (G) while avoiding obstacles (X).")
 st.sidebar.header("Parameters")
 
 # Parameters
