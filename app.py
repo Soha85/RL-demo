@@ -100,7 +100,6 @@ if st.sidebar.button("Train Agent"):
 
         progress_bar.progress((episode + 1) / episodes)
 
-    st.write(q_table)
     st.success("Training Completed!")
 
 # Testing and visualization
