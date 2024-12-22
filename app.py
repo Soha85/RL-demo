@@ -50,7 +50,7 @@ class GridEnv(gym.Env):
             return self.state, -1, False, {}
 
     def render(self):
-        grid = np.full((self.grid_size, self.grid_size), '.', dtype=str)
+        grid = np.full((self.grid_size, self.grid_size), '*', dtype=str)
         grid[self.goal] = 'G'
         for obs in self.obstacles:
             grid[obs] = 'X'
@@ -106,11 +106,12 @@ if st.sidebar.button("Train Agent"):
 if st.sidebar.button("Test Agent"):
     state = env.reset()
     done = False
+  
     st.write("### Agent's Path")
     while not done:
         x, y = state
         action = np.argmax(q_table[x, y])  # Exploit
         state, _, done, _ = env.step(action)
         grid = env.render()
-        st.write(grid)
+        st.text(grid)
         time.sleep(0.5)
